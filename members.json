@@ -1,0 +1,11 @@
+[
+    {
+      "_id": { "$oid": "64fabc4e5dfb4e2f847bdf0c" },
+      "name": "Oscar Leal",
+      "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/meavatar.jpg",
+      "list2023": ["RK61 Mechanical KeyBoard", "Logictech MX Master 2S"],
+      "list2024": ["Socks", "Candles", "Candy"],
+      "info": ["Shirts: XL"]
+    }
+  ]
+  

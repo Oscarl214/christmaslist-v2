@@ -2,9 +2,11 @@
 
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-
+import { SessionProvider } from 'next-auth/react';
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
+
+    <SessionProvider>
     <NextUIProvider>
       <NextThemesProvider
         attribute="class"
@@ -14,5 +16,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         {children}
       </NextThemesProvider>
     </NextUIProvider>
+  </SessionProvider>
   );
 }
