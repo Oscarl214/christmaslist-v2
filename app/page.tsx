@@ -60,7 +60,7 @@ function SignInPage() {
     objectFit="cover" 
   />
   <div className="absolute inset-0 flex justify-center items-center z-10">
-    <form onSubmit={handleSignIn} className="bg-white bg-opacity-75 p-8 rounded-md shadow-lg">
+    <form onSubmit={handleSignIn} className="bg-white bg-opacity-75 p-8 rounded-md shadow-lg flex justify-center items-center lg:flex-row flex-col">
       <label htmlFor="password"></label>
       <input
         type="password"
@@ -70,8 +70,8 @@ function SignInPage() {
         onChange={handlePasswordChange}
         className="p-2 border rounded mb-4"
       />
-      <Button type="submit" className="bg-red-500 text-white px-4 py-2 rounded">
-        Enter Christmas List
+      <Button type="submit" className="bg-red-500 text-white text-center px-4 py-2 rounded lg:ml-2 ">
+        Enter App
       </Button>
     </form>
   </div>
