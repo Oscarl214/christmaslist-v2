@@ -1,13 +1,20 @@
 'use client';
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { getSession, signIn, useSession } from 'next-auth/react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { Button } from '@nextui-org/react';
+import { redirect } from 'next/dist/server/api-utils';
 
 function SignInPage() {
   const [password, setPassword] = useState('');
   const router = useRouter();
+
+  const {data:session}=useSession()
+
+if(session){
+  router.push('/users')
+}
 
   const handleSignIn = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -64,3 +71,5 @@ function SignInPage() {
 }
 
 export default SignInPage;
+
+
