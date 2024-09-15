@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import toast from 'react-hot-toast';
@@ -20,7 +20,7 @@ function SignInPage() {
     try {
       const result = await signIn('credentials', {
         redirect: false,
-        credentials: { password },
+        password,
       });
 
       console.log('SignIn Result:', result);
@@ -44,17 +44,17 @@ function SignInPage() {
 
   return (
     <div>
-      <div className='flex justify-center items-center h-screen'>
+      <div className="flex justify-center items-center h-screen">
         <form onSubmit={handleSignIn}>
-          <label htmlFor='password'></label>
+          <label htmlFor="password"></label>
           <input
-            type='password'
-            name='password'
-            id='password'
-            placeholder='HINT: Family'
+            type="password"
+            name="password"
+            id="password"
+            placeholder="HINT: Family"
             onChange={handlePasswordChange}
           />
-          <Button type='submit' className='bg-red-500'>
+          <Button type="submit" className="bg-red-500">
             Enter ChristMas List
           </Button>
         </form>
@@ -64,4 +64,3 @@ function SignInPage() {
 }
 
 export default SignInPage;
-
