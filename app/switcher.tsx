@@ -26,7 +26,7 @@ const Switcher = () => {
       <Switch
         size="sm"
         defaultSelected
-        color="success"
+        color="danger"
         onClick={() => handleTheme()}
         thumbIcon={({ isSelected, className }) =>
           isSelected ? <FaSun className="text-black" /> : <FaMoon />

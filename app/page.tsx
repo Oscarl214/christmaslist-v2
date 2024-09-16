@@ -60,7 +60,7 @@ function SignInPage() {
     objectFit="cover" 
   />
   <div className="absolute inset-0 flex justify-center items-center z-10">
-    <form onSubmit={handleSignIn} className="bg-white bg-opacity-75 p-8 rounded-md shadow-lg flex justify-center items-center lg:flex-row flex-col">
+    <form onSubmit={handleSignIn} className="bg-white bg-opacity-75 p-8 rounded-md shadow-lg flex justify-center items-center  flex-col">
       <label htmlFor="password"></label>
       <input
         type="password"
