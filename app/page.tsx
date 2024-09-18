@@ -52,7 +52,7 @@ function SignInPage() {
   };
 
   return (
-<div className="relative h-screen w-full">
+<div className="relative h-[screen] w-full">
   <Image
     src={BG}
     alt="Christmas Gifts"

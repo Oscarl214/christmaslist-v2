@@ -58,7 +58,7 @@ const result= await fetch('/api/callMembers', {
             router.push(`member/${id}`)
         }
   return (
-    <div>
+    <div className=''>
       <section className="py-3 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* <p className="text-center mb-10 font-sans">
@@ -70,7 +70,7 @@ const result= await fetch('/api/callMembers', {
 
 
                 <div
-                className="group cursor-pointer w-full sm:w-1/2 lg:w-1/4 border border-black dark:border-white rounded-2xl p-5 transition-all duration-300 hover:border-red-500"
+                className="group cursor-pointer w-full sm:w-1/2 lg:w-1/4 border border-black dark:border-green-500 rounded-2xl p-5 transition-all duration-300 hover:border-red-500"
                 key={member.id}
                 onClick={()=>handleClick(member.id)}
                 >
@@ -79,6 +79,13 @@ const result= await fetch('/api/callMembers', {
                     <Image
                       src={member.profilePic}
                       alt="Santa Card"
+                      style={{
+                        backgroundImage:
+                          'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(https://christmaslist21.s3.us-east-2.amazonaws.com/BGCard.jpg)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }}
                       width={200}
                       height={200}
                       className="rounded-lg w-full object-cover"
