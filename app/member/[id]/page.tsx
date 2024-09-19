@@ -26,14 +26,16 @@ const Member = () => {
     useEffect(()=>{
         const fetchMember= async ()=>{
 
-            const result= await fetch(`/api/callMember/${id}`, {
+            const result= await fetch(`/api/callUser/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                cache: 'no-store',
             })
 
             const data: Member= await result.json();
             setMember(data)
+            console.log('Member Data:', data)
         }
 
         if(id){

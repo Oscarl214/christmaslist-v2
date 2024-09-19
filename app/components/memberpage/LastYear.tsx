@@ -36,20 +36,20 @@ const LastYear:React.FC<MemberInfoProps> = ({member}) => {
       {(onClose) => (
         <>
           <ModalHeader className="flex flex-col gap-1">
-            Vehicle Specs
+            Last Year Christmas List
           </ModalHeader>
           <Divider />
           <ModalBody className="">
-              {member.list2023.map((item,index)=>(
-
-                  <ul className="font-sans list-disc list-inside" >
-              <li className="p-1 marker:text-[#0077ff]" key={index}>
-                {item}
-              </li>
-
-            </ul>
-                ))}
-          </ModalBody>
+                {member?.list2023 && member.list2023.length > 0 ? (
+                  member.list2023.map((item, index) => (
+                    <ul className="font-sans list-disc list-inside" key={index}>
+                      <li className="p-1 marker:text-[#0077ff]">{item}</li>
+                    </ul>
+                  ))
+                ) : (
+                  <p>No data available for 2023 list.</p>
+                )}
+              </ModalBody>
           <ModalFooter>
             <Button color="danger" variant="light" onPress={onClose}>
               Close
@@ -65,4 +65,3 @@ const LastYear:React.FC<MemberInfoProps> = ({member}) => {
 export default LastYear
 
 
-//Using Model System here to place last years info based on button click

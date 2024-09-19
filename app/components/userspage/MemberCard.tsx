@@ -55,8 +55,10 @@ const result= await fetch('/api/callMembers', {
 
 
         const handleClick= (id:string)=>{
-            router.push(`member/${id}`)
+            router.push(`/member/${id}`)
         }
+
+        
   return (
     <div className=''>
       <section className="py-3 ">
