@@ -29,7 +29,7 @@ const LastYear:React.FC<MemberInfoProps> = ({member}) => {
 
   return (
     <div>      <Button onPress={onOpen} className="bg-blue-500 hover:bg-orange-500">
-    Vehicle Information
+    2023 List
   </Button>
   <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
     <ModalContent>

@@ -26,7 +26,7 @@ const Member = () => {
     useEffect(()=>{
         const fetchMember= async ()=>{
 
-            const result= await fetch('/api/callMember', {
+            const result= await fetch(`/api/callMember/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
