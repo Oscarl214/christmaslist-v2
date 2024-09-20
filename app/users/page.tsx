@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { useSession } from 'next-auth/react';
@@ -20,11 +20,11 @@ const Users = () => {
   }
 
   return (
-    <div   >
-<NavBar/>
-        <MemberCard />
+    <div>
+      <NavBar />
       <div>
-        </div>
+        <MemberCard />
+      </div>
     </div>
   );
 };
