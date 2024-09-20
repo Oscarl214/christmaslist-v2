@@ -4,6 +4,8 @@ import { useParams } from 'next/navigation'
 
 import {Spinner} from '@nextui-org/react'
 import LastYear from '@/app/components/memberpage/LastYear';
+import NavBar from '@/app/components/navbar';
+import Info from '@/app/components/memberpage/Info';
 interface Member {
     id: string;
     name: string;
@@ -48,7 +50,12 @@ const Member = () => {
     }
   return (
     <div>
+        <NavBar/>
+        <div className='flex justify-center items-center h-screen flex-col gap-3'>
+
         <LastYear member={member}/>
+        <Info member={member}/>
+        </div>
     </div>
   )
 }

@@ -28,7 +28,7 @@ const LastYear:React.FC<MemberInfoProps> = ({member}) => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <div>      <Button onPress={onOpen} className="bg-blue-500 hover:bg-orange-500">
+    <div>      <Button onPress={onOpen} className="bg-green-500 hover:bg-red-500 hover:animate-bounce">
     2023 List
   </Button>
   <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
