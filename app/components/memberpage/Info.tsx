@@ -20,11 +20,11 @@ const Info:React.FC<MemberInfoProps>=({member})=> {
     
   return (
     <div>
-    <Card>
-        <CardHeader>
+    <Card >
+        <CardHeader >
         Important Info
         </CardHeader>
-        <CardBody>
+        <CardBody className='h-[1px] hover:h-auto'>
             {member?.info && member.info.length>0?(
                 member.info.map((item,index)=>(
 

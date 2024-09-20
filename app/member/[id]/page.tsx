@@ -6,6 +6,9 @@ import {Spinner} from '@nextui-org/react'
 import LastYear from '@/app/components/memberpage/LastYear';
 import NavBar from '@/app/components/navbar';
 import Info from '@/app/components/memberpage/Info';
+
+import Image from 'next/image';
+
 interface Member {
     id: string;
     name: string;
@@ -51,10 +54,20 @@ const Member = () => {
   return (
     <div>
         <NavBar/>
-        <div className='flex justify-center items-center h-screen flex-col gap-3'>
+        <div className='flex justify-center items-center h-screen flex-col lf:flex-row  md:flex-row gap-3'>
+   
+        <Image
+                      src={member.profilePic}
+                      alt="Santa Card"
+                      width={500}
+                      height={500}
+                      className="rounded-lg "
+                      />
+<div className='flex flex-row justify-evenly'>
 
         <LastYear member={member}/>
         <Info member={member}/>
+</div>
         </div>
     </div>
   )
