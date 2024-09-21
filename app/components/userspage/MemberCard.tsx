@@ -1,9 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import santa from '../../../public/Santa.jpeg';
-import { NextResponse } from 'next/server';
-import { Carousel } from '@material-tailwind/react';
 import { useRouter } from 'next/navigation';
 
 interface Member {
@@ -16,7 +13,6 @@ interface Member {
 }
 
 const MemberCard = () => {
-  const [loading, setLoading] = useState<boolean>(true);
   const [members, setMembers] = useState<Member[]>([]);
 
   const router = useRouter();
@@ -43,7 +39,6 @@ const MemberCard = () => {
       } catch (error) {
         console.error('Error fetching Member data', error);
       } finally {
-        setLoading(false);
       }
     };
     callMembers();
@@ -85,7 +80,7 @@ const MemberCard = () => {
                   />
                 </div>
                 <div className="block">
-                  <h3 className='font-medium text-4xl text-center  mb-9"'>
+                  <h3 className='font-medium text-5xl text-center  mb-9"'>
                     {member.name}
                   </h3>
 

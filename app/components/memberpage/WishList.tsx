@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-
+import ListForm from './ListForm';
 import Image from 'next/image';
 import Stocking from '../../../public/stocking.png';
 import {
@@ -48,11 +48,12 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
+              <ModalHeader className="text-3xl text-center">
                 Christmas List
               </ModalHeader>
               <Divider />
               <ModalBody className="">
+                <ListForm />
                 {member?.list2023 && member.list2023.length > 0 ? (
                   member.list2023.map((item, index) => (
                     <ul className="font-sans list-disc list-inside" key={index}>

@@ -55,7 +55,7 @@ const Member = () => {
   return (
     <div>
       <NavBar />
-      <div className="flex justify-center items-center  flex-col lf:flex-row  md:flex-row gap-3">
+      <div className="flex justify-center items-center  flex-col  gap-3">
         <Image
           src={member.profilePic}
           alt="Santa Card"
