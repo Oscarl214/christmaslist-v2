@@ -4,7 +4,6 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
 } from '@nextui-org/react';
 import Switcher from '../switcher';
 import Logo from '../../public/Logo.png';

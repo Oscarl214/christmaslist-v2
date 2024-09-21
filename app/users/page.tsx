@@ -4,9 +4,8 @@ import React from 'react';
 import { useSession } from 'next-auth/react';
 import { Spinner } from '@nextui-org/react';
 import NavBar from '../components/navbar';
-import Snow from '../../public/snow.jpeg';
+
 import MemberCard from '../components/userspage/MemberCard';
-import Image from 'next/image';
 
 const Users = () => {
   const { data: session } = useSession();

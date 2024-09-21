@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
 import { Spinner } from '@nextui-org/react';
-import LastYear from '@/app/components/memberpage/LastYear';
+
 import NavBar from '@/app/components/navbar';
 import Info from '@/app/components/memberpage/Info';
 
 import Image from 'next/image';
+import WishList from '@/app/components/memberpage/WishList';
 
 interface Member {
   id: string;
@@ -58,12 +59,13 @@ const Member = () => {
         <Image
           src={member.profilePic}
           alt="Santa Card"
-          width={500}
-          height={500}
-          className="rounded-lg "
+          width={300}
+          height={300}
+          className="rounded-lg bg-green-500"
         />
-        <div className="flex flex-row justify-evenly">
-          <LastYear member={member} />
+        <h2 className="text-7xl m-2">{member.name}</h2>
+        <div className="flex flex-row mt-[100px] gap-2">
+          <WishList member={member} />
           <Info member={member} />
         </div>
       </div>
