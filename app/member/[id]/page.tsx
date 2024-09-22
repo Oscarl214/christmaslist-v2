@@ -37,6 +37,7 @@ const Member = () => {
 
       const data: Member = await result.json();
       setMember(data);
+
       console.log('Member Data:', data);
     };
 
@@ -44,6 +45,25 @@ const Member = () => {
       fetchMember();
     }
   }, [id]);
+
+  const updatedWishList = (newItem: string) => {
+    if (member) {
+      setMember({
+        ...member,
+        list2024: [...member.list2024, newItem],
+      });
+    }
+  };
+
+  const deleteWishItem = (index: number) => {
+    if (member) {
+      const updatedList = member.list2024.filter((_, i) => i !== index);
+      setMember({
+        ...member,
+        list2024: updatedList,
+      });
+    }
+  };
 
   if (!member) {
     return (
@@ -65,7 +85,11 @@ const Member = () => {
         />
         <h2 className="text-7xl m-2">{member.name}</h2>
         <div className="flex flex-row mt-[100px] gap-2">
-          <WishList member={member} />
+          <WishList
+            member={member}
+            updateWishList={updatedWishList}
+            deleteWishItem={deleteWishItem}
+          />
           <Info member={member} />
         </div>
       </div>

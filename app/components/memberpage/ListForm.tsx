@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 
-import { useParams } from 'next/navigation';
-const ListForm = () => {
-  const [item, setItem] = useState('');
-  const { id } = useParams();
+interface ListFormProps {
+  memberId: string;
+  updateWishList: (newItem: string) => void;
+}
 
-  console.log('form params', id);
+const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
+  const [item, setItem] = useState('');
 
   const handleSubmission = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const ListForm = () => {
         },
         body: JSON.stringify({
           item,
-          id,
+          memberId,
         }),
       });
 
@@ -33,6 +34,7 @@ const ListForm = () => {
         console.log('Item added successfully', result);
         toast.success('Item added successfully');
         setItem('');
+        updateWishList(item);
       } else {
         console.error('Failed to add item');
         toast.error('Failed to add item');

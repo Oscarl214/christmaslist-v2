@@ -1,0 +1,225 @@
+[{
+  "_id": {
+    "$oid": "64fabc4e5dfb4e2f847bdf0c"
+  },
+  "name": "Oscar",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Oscar2.png",
+  "list2023": [
+    "RK61 Mechanical KeyBoard",
+    "Logictech MX Master 2S"
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    "Size XL in Shirts"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4e7dfb4e3f847bdf0d"
+  },
+  "name": "Karina",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Karina2.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    "Leggings: Size M"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4e8dfb4e4f847bdf0e"
+  },
+  "name": "Sandra",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Sandra.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4e9dfb4e5f847bdf0f"
+  },
+  "name": "Marlon",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Marlon.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4eadfb4e6f847bdf10"
+  },
+  "name": "Manny",
+  "profilePic": "",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4ebdfb4e7f847bdf11"
+  },
+  "name": "Eva",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Evaa.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4ecdfb4e8f847bdf12"
+  },
+  "name": "Mia",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Mia.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4eddfb4e9f847bdf13"
+  },
+  "name": "OJ",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Oj.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4eedfb4eaf847bdf14"
+  },
+  "name": "Jera",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/jera.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4efdfb4ebf847bdf15"
+  },
+  "name": "Patty",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Patty.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4f0dfb4ecf847bdf16"
+  },
+  "name": "Daisy",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Daisy.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "64fabc4f1dfb4edf847bdf17"
+  },
+  "name": "Luka",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Luka.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "66e8e7ea13214bd23ae09bf7"
+  },
+  "name": "Lorenzo",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/Lorenzo.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ef3250c00bf4f1d4e16045"
+  },
+  "name": "Ama",
+  "profilePic": "https://christmaslist21.s3.us-east-2.amazonaws.com/AMA.png",
+  "list2023": [
+    ""
+  ],
+  "list2024": [
+    ""
+  ],
+  "info": [
+    ""
+  ]
+}]

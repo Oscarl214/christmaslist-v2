@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { item, id } = await request.json();
+    const { item, memberId } = await request.json();
 
-    if (!item || !id) {
+    if (!item || !memberId) {
       return NextResponse.json(
         {
           error: 'Missing required fields',
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     }
 
     const famMember = await prisma.member.findUnique({
-      where: { id },
+      where: { id: memberId },
       select: { id: true, list2024: true },
     });
 
