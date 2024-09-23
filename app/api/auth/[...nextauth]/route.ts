@@ -1,7 +1,7 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { JWT } from 'next-auth/jwt';
 import NextAuth from 'next-auth';
-
+import { Session } from 'next-auth';
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -42,7 +42,7 @@ const handler = NextAuth({
       }
       return token;
     },
-    async session({ session, token }: { session: any; token: JWT }) {
+    async session({ session, token }: { session: Session; token: JWT }) {
       if (token.user) {
         session.user = token.user;
       }
