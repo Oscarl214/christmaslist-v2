@@ -31,7 +31,9 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Button onPress={onOpen} />
+        <Button onPress={onOpen} className="border-red-500" variant="ghost">
+          Info
+        </Button>
 
         <p className="m-2 text-4xl text-center">Info</p>
       </div>

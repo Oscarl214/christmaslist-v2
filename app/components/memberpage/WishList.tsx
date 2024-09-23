@@ -66,7 +66,9 @@ const WishList: React.FC<MemberInfoProps> = ({
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Button onPress={onOpen} />
+        <Button onPress={onOpen} className="border-red-500" variant="ghost">
+          Create
+        </Button>
 
         <p className="m-2 text-4xl">Create Wish List</p>
       </div>

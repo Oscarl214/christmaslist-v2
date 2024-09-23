@@ -43,7 +43,9 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
           onClick={onOpen}
           className="cursor-pointer"
         /> */}
-        <Button onPress={onOpen} />
+        <Button onPress={onOpen} className="border-green-500" variant="ghost">
+          Wish List
+        </Button>
         <p className="m-2 text-4xl">{member.name}&apos;s Wish List</p>
       </div>
 
