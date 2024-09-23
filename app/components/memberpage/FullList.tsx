@@ -37,8 +37,8 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
       <div className="flex flex-col justify-center items-center">
         <Image
           src={Santa}
-          height={100}
-          width={100}
+          height={50}
+          width={50}
           alt="Stocking"
           onClick={onOpen}
           className="cursor-pointer"

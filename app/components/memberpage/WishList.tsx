@@ -6,6 +6,7 @@ import Elf from '../../../public/Elf.png';
 import { TbChristmasBall } from 'react-icons/tb';
 import { Card, CardBody } from '@nextui-org/react';
 import Grinch from '../../../public/Grinch.gif';
+import Link from 'next/link';
 import {
   Modal,
   ModalContent,
@@ -65,16 +66,21 @@ const WishList: React.FC<MemberInfoProps> = ({
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Image
-          src={Elf}
-          height={100}
-          width={100}
-          alt="Stocking"
+        <Link
+          href={''}
           onClick={onOpen}
-          className="cursor-pointer"
-        />
+          className="flex flex-col justify-center items-center"
+        >
+          <Image
+            src={Elf}
+            height={50}
+            width={50}
+            alt="Stocking"
+            className="cursor-pointer"
+          />
 
-        <p className="m-2 text-4xl">Create Wish List</p>
+          <p className="m-2 text-4xl">Create Wish List</p>
+        </Link>
       </div>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
