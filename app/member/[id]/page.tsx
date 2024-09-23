@@ -35,7 +35,7 @@ const Member = () => {
         },
         cache: 'no-store',
       });
-
+      //
       const data: Member = await result.json();
       setMember(data);
 
