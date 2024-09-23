@@ -96,7 +96,7 @@ const Member = () => {
         <div>
           <FullList member={member} />
         </div>
-        <div className="flex flex-row  gap-2 m-4 p-4">
+        <div className="flex flex-row justify-around gap-2 m-4 p-4">
           <WishList
             member={member}
             updateWishList={updatedWishList}
