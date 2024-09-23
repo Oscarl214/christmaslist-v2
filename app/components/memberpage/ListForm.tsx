@@ -46,7 +46,7 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
 
   return (
     <div className="flex flex-col justify-center items-center ">
-      <form className="h-auto w-[300px]" onSubmit={handleSubmission}>
+      <form className="h-auto w-[300px]">
         <Card className="bg-white text-black">
           <CardBody>
             <div className="flex justify-center flex-row items-center gap-4">
@@ -63,7 +63,11 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
             />
           </CardBody>
           <CardFooter>
-            <Button type="submit" className="bg-green-500  text-3xl">
+            <Button
+              type="submit"
+              className="bg-green-500  text-3xl"
+              onClick={handleSubmission}
+            >
               Add Item
             </Button>
           </CardFooter>
