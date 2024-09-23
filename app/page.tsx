@@ -68,7 +68,7 @@ function SignInPage() {
             id="password"
             placeholder="Password"
             onChange={handlePasswordChange}
-            className="p-2 border rounded h-[24px]"
+            className="p-2 border rounded h-[34px]"
           />
           <p className="font-sans text-sm m-2">HINT: Family</p>
           <Button
