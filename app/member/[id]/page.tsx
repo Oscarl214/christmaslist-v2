@@ -91,11 +91,7 @@ const Member = () => {
           height={300}
           className="rounded-lg "
         />
-        <div className="flex flex-row items-center justify-evenly gap-4 ">
-          <TbChristmasTree className="text-5xl text-green-500" />
-          <h2 className="text-7xl m-2">{member.name}</h2>
-          <TbChristmasTree className="text-5xl text-red-500" />
-        </div>
+        <h1 className="text-5xl">{member.name}&apos;s Wish List</h1>
         <div>
           <FullList member={member} />
         </div>
