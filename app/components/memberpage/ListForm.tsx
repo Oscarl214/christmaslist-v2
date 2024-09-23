@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { SlPresent } from 'react-icons/sl';
+import { Spinner } from '@nextui-org/react';
 interface ListFormProps {
   memberId: string;
   updateWishList: (newItem: string) => void;
@@ -11,11 +12,14 @@ interface ListFormProps {
 const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
   const [item, setItem] = useState('');
 
+  const [loading, setLoading] = useState(false);
   const handleSubmission = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!item) {
       toast.error('Please Input a Christmas Item');
     }
+
+    setLoading(true);
 
     try {
       const response = await fetch('/api/addItem', {
@@ -41,6 +45,8 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
       }
     } catch (error) {
       console.error('Error submitting Item:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -63,13 +69,18 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
             />
           </CardBody>
           <CardFooter>
-            <Button
-              type="submit"
-              className="bg-green-500  text-3xl"
-              onClick={handleSubmission}
-            >
-              Add Item
-            </Button>
+            {loading ? (
+              <Spinner size="lg" color="success" />
+            ) : (
+              <Button
+                type="submit"
+                className="bg-green-500  text-3xl"
+                onClick={handleSubmission}
+                disabled={loading}
+              >
+                Add Item
+              </Button>
+            )}
           </CardFooter>
         </Card>
       </form>
