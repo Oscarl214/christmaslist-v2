@@ -63,7 +63,7 @@ function SignInPage() {
         >
           <label htmlFor="password"></label>
           <input
-            type="password"
+            type="text"
             name="password"
             id="password"
             placeholder="Password"

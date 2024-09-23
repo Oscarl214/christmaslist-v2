@@ -62,7 +62,7 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
                 </ul>
               ))
             ) : (
-              <p className="text-black"> No Info available</p>
+              <p className="text-black">No Info available</p>
             )}
           </ModalBody>
           <ModalFooter>
