@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       where: { id: famMember.id },
       data: {
         list2024: {
-          push: updatedList,
+          set: updatedList,
         },
       },
     });
