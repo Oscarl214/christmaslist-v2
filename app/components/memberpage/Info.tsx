@@ -12,6 +12,7 @@ import {
 } from '@nextui-org/react';
 import Stocking from '../../../public/stocking.png';
 import Image from 'next/image';
+import Rudolph from '../../../public/Rudolph.gif';
 interface Member {
   id: string;
   name: string;
@@ -44,7 +45,19 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          <ModalHeader>INFO</ModalHeader>
+          <ModalHeader>
+            <div className="flex flex-col justify-center items-center">
+              <p className="m-2">INFO</p>
+              <Image
+                src={Rudolph}
+                alt="Animated GIF"
+                width={500}
+                height={500}
+                unoptimized={true}
+                className="rounded-sm"
+              />
+            </div>
+          </ModalHeader>
           <Divider />
           <ModalBody className="h-auto">
             {member?.info && member.info.length > 0 ? (
@@ -58,9 +71,7 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" variant="light" onPress={onClose}>
-              Close
-            </Button>
+            <Button onPress={onClose}>Close</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

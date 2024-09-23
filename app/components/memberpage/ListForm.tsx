@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
 import toast from 'react-hot-toast';
-
+import { SlPresent } from 'react-icons/sl';
 interface ListFormProps {
   memberId: string;
   updateWishList: (newItem: string) => void;
@@ -49,18 +49,23 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
       <form className="h-auto w-[300px]" onSubmit={handleSubmission}>
         <Card className="bg-white text-black">
           <CardBody>
-            <label className="text-3xl">Enter wishlist item</label>
+            <div className="flex justify-center flex-row items-center gap-4">
+              <SlPresent className="text-2xl text-yellow-500" />
+              <label className="text-3xl">Enter wishlist item</label>
+            </div>
             <input
               type="text"
               placeholder="Socks"
               value={item}
               required
-              className="bg-gray-500 rounded-sm m-2 font-sans text-[16px] h-[25px]"
+              className="bg-gray-300 rounded-sm m-2 font-sans text-[16px] h-[35px] p-2"
               onChange={(e) => setItem(e.target.value)}
             />
           </CardBody>
           <CardFooter>
-            <Button type="submit">Add to Wishlist</Button>
+            <Button type="submit" className="bg-green-500  text-3xl">
+              Add Item
+            </Button>
           </CardFooter>
         </Card>
       </form>

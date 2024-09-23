@@ -6,9 +6,10 @@ import { Spinner } from '@nextui-org/react';
 
 import NavBar from '@/app/components/navbar';
 import Info from '@/app/components/memberpage/Info';
-
+import { TbChristmasTree } from 'react-icons/tb';
 import Image from 'next/image';
 import WishList from '@/app/components/memberpage/WishList';
+import FullList from '@/app/components/memberpage/FullList';
 
 interface Member {
   id: string;
@@ -80,11 +81,25 @@ const Member = () => {
           src={member.profilePic}
           alt="Santa Card"
           width={300}
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(https://christmaslist21.s3.us-east-2.amazonaws.com/Lights.gif)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
           height={300}
-          className="rounded-lg bg-green-500"
+          className="rounded-lg "
         />
-        <h2 className="text-7xl m-2">{member.name}</h2>
-        <div className="flex flex-row mt-[100px] gap-2">
+        <div className="flex flex-row items-center justify-evenly gap-4 ">
+          <TbChristmasTree className="text-5xl text-green-500" />
+          <h2 className="text-7xl m-2">{member.name}</h2>
+          <TbChristmasTree className="text-5xl text-red-500" />
+        </div>
+        <div>
+          <FullList member={member} />
+        </div>
+        <div className="flex flex-row  gap-2">
           <WishList
             member={member}
             updateWishList={updatedWishList}

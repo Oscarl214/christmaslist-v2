@@ -53,7 +53,10 @@ function SignInPage() {
   return (
     <div className="relative h-screen w-full">
       <Image src={BG} alt="Christmas Gifts" layout="fill" objectFit="cover" />
-      <div className="absolute inset-0 flex justify-center items-center z-10">
+      <div className="absolute inset-0 flex justify-center flex-col items-center z-10">
+        <h1 className="text-7xl text-center m-4 text-white">
+          Leals Christmas Wishes
+        </h1>
         <form
           onSubmit={handleSignIn}
           className="bg-white bg-opacity-75 p-8 rounded-md shadow-lg flex justify-center items-center  flex-col"
@@ -65,12 +68,12 @@ function SignInPage() {
             id="password"
             placeholder="Password"
             onChange={handlePasswordChange}
-            className="p-2 border rounded"
+            className="p-2 border rounded h-[24px]"
           />
-          <p className="font-sans text-sm mb-2">HINT: Family</p>
+          <p className="font-sans text-sm m-2">HINT: Family</p>
           <Button
             type="submit"
-            className="bg-red-500 text-white text-center px-4 py-2 rounded lg:ml-2 "
+            className="bg-red-500  text-center px-4 py-2 rounded lg:ml-2 hover:bg-green-500 "
           >
             Enter App
           </Button>

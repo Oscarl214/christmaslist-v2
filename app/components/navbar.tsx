@@ -5,6 +5,7 @@ import {
   NavbarItem,
   Link,
 } from '@nextui-org/react';
+import Elf from '../../public/Elf.png';
 import Switcher from '../switcher';
 import Logo from '../../public/Logo.png';
 import Image from 'next/image';
@@ -12,14 +13,12 @@ const NavBar = () => {
   return (
     <Navbar>
       <NavbarBrand>
-        <Image height={50} width={50} src={Logo} alt="Santa" />
+        <Image height={60} width={60} src={Logo} alt="Santa" />
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {/* <NavbarItem isActive>
-        <Link href="#" aria-current="page">
-          Customers
+      <NavbarContent className=" sm:flex gap-4" justify="center">
+        <Link href="/users" color="foreground">
+          <NavbarItem className="text-3xl">Leal&apos;s Secret Santa</NavbarItem>
         </Link>
-      </NavbarItem> */}
         {/* <NavbarItem>
         <Link color="foreground" href="#">
           Integrations
@@ -31,8 +30,12 @@ const NavBar = () => {
         <Link href="#">Login</Link>
       </NavbarItem> */}
         <NavbarItem isActive>
-          <Link color="foreground" href="/users" className="hover:text-red-500">
-            Elfs
+          <Link
+            color="foreground"
+            href="/users"
+            className="hover:text-red-500 text-2xl "
+          >
+            <Image height={40} width={40} src={Elf} alt="Santa" />
           </Link>
         </NavbarItem>
         <NavbarItem>
