@@ -65,22 +65,11 @@ const WishList: React.FC<MemberInfoProps> = ({
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center">
-        <Link
-          href={''}
-          onClick={onOpen}
-          className="flex flex-col justify-center items-center"
-        >
-          <Image
-            src={Elf}
-            height={50}
-            width={50}
-            alt="Stocking"
-            className="cursor-pointer"
-          />
+      <div className="flex flex-col justify-center items-center" >
+<Button onPress={onOpen}>
 
           <p className="m-2 text-4xl">Create Wish List</p>
-        </Link>
+       
       </div>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>

@@ -31,14 +31,7 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Image
-          src={Stocking}
-          height={50}
-          width={50}
-          alt="Stocking"
-          onClick={onOpen}
-          className="cursor-pointer"
-        />
+        <Button onPress={onOpen} />
 
         <p className="m-2 text-4xl text-center">Info</p>
       </div>
