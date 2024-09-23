@@ -56,7 +56,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
               </ModalHeader>
               <Divider className="text-black" />
               <ModalBody className="flex justify-center items-center">
-                <div className="w-full h-[650px] overflow-auto border rounded-lg p-2">
+                <div className="w-full h-[500px] overflow-auto border rounded-lg p-2">
                   {member?.list2024 && member.list2024.length > 0 ? (
                     member.list2024.map((item, index) => (
                       <div
