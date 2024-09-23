@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'User Not Found' }, { status: 404 });
     }
 
-    const updatedList = [...famMember.list2024, item];
+    const updatedList = [...(famMember.list2024 || []), item];
 
     await prisma.member.update({
       where: { id: famMember.id },
