@@ -20,7 +20,7 @@ interface Member {
   list2024: string[];
   info: string[];
 }
-
+//
 const Member = () => {
   const { id } = useParams();
 
