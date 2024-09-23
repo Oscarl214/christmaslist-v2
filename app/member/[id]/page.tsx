@@ -6,7 +6,7 @@ import { Spinner } from '@nextui-org/react';
 
 import NavBar from '@/app/components/navbar';
 import Info from '@/app/components/memberpage/Info';
-import { TbChristmasTree } from 'react-icons/tb';
+
 import Image from 'next/image';
 import WishList from '@/app/components/memberpage/WishList';
 import FullList from '@/app/components/memberpage/FullList';
