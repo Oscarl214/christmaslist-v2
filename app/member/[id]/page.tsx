@@ -78,20 +78,28 @@ const Member = () => {
     <div>
       <NavBar />
       <div className="flex justify-center items-center  flex-col  gap-3">
-        <Image
-          src={member.profilePic}
-          alt="Santa Card"
-          width={300}
+        <div
           style={{
             backgroundImage:
-              'linear-gradient(rgba(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(https://christmaslist21.s3.us-east-2.amazonaws.com/Lights.gif)',
+              'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(https://christmaslist21.s3.us-east-2.amazonaws.com/Lights.gif)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
+            width: '300px',
+            height: '300px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
-          height={300}
-          className="rounded-lg "
-        />
+        >
+          <Image
+            src={member.profilePic}
+            alt="Santa Card"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+        </div>
         <h1 className="text-5xl">{member.name}&apos;s Wish List</h1>
         <div>
           <FullList member={member} />
