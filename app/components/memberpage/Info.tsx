@@ -10,7 +10,7 @@ import {
   useDisclosure,
   Divider,
 } from '@nextui-org/react';
-import Stocking from '../../../public/stocking.png';
+
 import Image from 'next/image';
 import Rudolph from '../../../public/Rudolph.gif';
 interface Member {

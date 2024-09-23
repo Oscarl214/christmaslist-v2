@@ -2,11 +2,11 @@
 import React from 'react';
 import ListForm from './ListForm';
 import Image from 'next/image';
-import Elf from '../../../public/Elf.png';
+
 import { TbChristmasBall } from 'react-icons/tb';
 import { Card, CardBody } from '@nextui-org/react';
 import Grinch from '../../../public/Grinch.gif';
-import Link from 'next/link';
+
 import {
   Modal,
   ModalContent,

@@ -12,7 +12,6 @@ import {
   Divider,
 } from '@nextui-org/react';
 import Image from 'next/image';
-import Santa from '../../../public/SantaBag.png';
 
 import Jack from '../../../public/Jack.gif';
 
