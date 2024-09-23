@@ -31,7 +31,7 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Button onPress={onOpen} className="border-red-500" variant="ghost">
+        <Button onPress={onOpen} className="border-green-500" variant="ghost">
           Info
         </Button>
 

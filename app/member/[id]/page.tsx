@@ -10,6 +10,7 @@ import Info from '@/app/components/memberpage/Info';
 import Image from 'next/image';
 import WishList from '@/app/components/memberpage/WishList';
 import FullList from '@/app/components/memberpage/FullList';
+import Footer from '@/app/components/Footer';
 
 interface Member {
   id: string;
@@ -95,7 +96,7 @@ const Member = () => {
         <div>
           <FullList member={member} />
         </div>
-        <div className="flex flex-row  gap-2">
+        <div className="flex flex-row  gap-2 m-4 p-4">
           <WishList
             member={member}
             updateWishList={updatedWishList}
@@ -104,6 +105,7 @@ const Member = () => {
           <Info member={member} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

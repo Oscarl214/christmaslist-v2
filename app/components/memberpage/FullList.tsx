@@ -21,7 +21,7 @@ interface MemberInfoProps {
 const FullList: React.FC<MemberInfoProps> = ({ member }) => {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center ">
         {/* <Image
           src={Santa}
           height={50}
@@ -33,11 +33,11 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
 
         {/* <p className="m-2 text-4xl">{member.name}&apos;s Wish List</p> */}
       </div>
-      <div className="w-full h-[500px] overflow-auto border rounded-lg p-2">
+      <div className="w-auto h-auto overflow-auto border rounded-lg p-6">
         {member?.list2024 && member.list2024.length > 0 ? (
           member.list2024.map((item, index) => (
             <div key={index} className="flex justify-between items-center mb-2">
-              <Card className="w-full">
+              <Card className="">
                 <CardBody className="flex justify-center items-center">
                   <ul className="font-sans list-inside w-full">
                     <li
@@ -52,7 +52,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
             </div>
           ))
         ) : (
-          <div className="flex justify-center flex-col items-center h-full">
+          <div className="flex justify-center flex-col items-center h-full ">
             <p className="text-3xl text-center">
               Please add your first Wish Item!
             </p>

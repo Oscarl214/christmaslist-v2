@@ -6,6 +6,7 @@ import { Spinner } from '@nextui-org/react';
 import NavBar from '../components/navbar';
 
 import MemberCard from '../components/userspage/MemberCard';
+import Footer from '../components/Footer';
 
 const Users = () => {
   const { data: session } = useSession();
@@ -24,6 +25,7 @@ const Users = () => {
       <div>
         <MemberCard />
       </div>
+      <Footer />
     </div>
   );
 };
