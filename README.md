@@ -27,7 +27,11 @@ Leal's Christmas Wishes is a private, full-stack application built exclusively f
 ![Desktop View](https://github.com/user-attachments/assets/49cfc3a7-55b0-48dd-b1da-e6176a145462)
 
 
- View
+## Mobile View
+
+![Mobile View](https://github.com/user-attachments/assets/61cdc42e-099f-4265-8233-d6ebd784781f)
+
+
 
 ## Live
 
