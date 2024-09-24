@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody } from '@nextui-org/react';
 
 import Image from 'next/image';
-
+import { SlPresent } from 'react-icons/sl';
 import Jack from '../../../public/Jack.gif';
 
 interface Member {
@@ -38,13 +38,15 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
           member.list2024.map((item, index) => (
             <div key={index} className="flex justify-between items-center mb-2">
               <Card className="">
-                <CardBody className="flex justify-center items-center">
-                  <ul className="font-sans list-inside w-full">
+                <CardBody className="flex justify-center items-center ">
+                  <ul className="font-sans list-inside w-full flex flex-row">
                     <li
-                      className="p-1 text-center marker:text-[#0077ff] text-xl"
+                      className="p-1 flex items-center justify-center text-center text-xl w-[220px]"
                       key={index}
                     >
+                      <SlPresent className="mr-2 text-3xl text-orange-500" />
                       {item}
+                      <SlPresent className="ml-2 text-3xl text-orange-500" />
                     </li>
                   </ul>
                 </CardBody>
