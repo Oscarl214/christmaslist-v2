@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leals Christmas Wishes V2
 
-## Getting Started
+Leal's Christmas Wishes is a private, full-stack application built exclusively for my family to help organize and share our Christmas lists for the upcoming year. This version is a major upgrade from the original, where I previously used GraphQL. Now, I've leveraged the power of Next.js, Prisma, and NextAuth to create a more versatile and user-friendly experience for my family.
 
-First, run the development server:
+- **Home Page:** A dynamic page that fetches and displays all family members. Each member is represented by a card featuring their Memoji and name. Clicking on a card navigates the user to a detailed page for that member.
+- **Member Page:** Displays the member's Memoji along with their full Christmas wishlist. Users can open a modal form to add or remove items from the list. A second modal provides important member information, such as clothing sizes for pants, shirts, and more.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Dynamic Routing:** Leveraging Next.js for server-side rendering and routing, ensuring fast and efficient page loading.
+- **Responsive Design:** Tailwind CSS is utilized to ensure a visually appealing and responsive layout across devices.
+- **Ease of Maintenance:** The modular structure of React components and the utility-first approach of Tailwind CSS make the codebase easy to maintain and extend.
+- **Security:** Implemented NextAuth to safeguard API endpoints and restrict access to pages, ensuring that only users who know the password can view or interact with the application. This provides a secure experience, protecting user data and maintaining privacy across the platform.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **NextUI:** https://nextui.org/
+- **Vercel:** https://vercel.com/home
+- **DaisyUI:** https://daisyui.com/
+- **Framer-Motion:** https://www.framer.com/motion/
+- **Next-Auth:** https://next-auth.js.org/
+- **Yes-Icons:** https://yesicon.app/
+- **AWS S3 Bucket:** https://aws.amazon.com/s3/
 
-## Learn More
+## Desktop View
 
-To learn more about Next.js, take a look at the following resources:
+## Live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Leal's Christmas Wishes](https://christmaslist-v2.vercel.app)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the [MIT License](LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
