@@ -22,7 +22,11 @@ Leal's Christmas Wishes is a private, full-stack application built exclusively f
 - **Yes-Icons:** https://yesicon.app/
 - **AWS S3 Bucket:** https://aws.amazon.com/s3/
 
-## Desktop View
+## Desktop 
+
+![Uploading WishChrist.gif…]()
+
+ View
 
 ## Live
 
