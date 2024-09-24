@@ -24,7 +24,8 @@ Leal's Christmas Wishes is a private, full-stack application built exclusively f
 
 ## Desktop 
 
-![Uploading WishChrist.gif…]()
+![Desktop View](https://github.com/user-attachments/assets/49cfc3a7-55b0-48dd-b1da-e6176a145462)
+
 
  View
 
