@@ -52,10 +52,6 @@ const MemberCard = () => {
     <div className="">
       <section className="py-3 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* <p className="text-center mb-10 font-sans">
-            Blogs written by me with topics ranging from: tech, life, &
-            interests.
-          </p> */}
           <div className="flex justify-center mb-14 gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:gap-y-4 lg:gap-x-4">
             {members.map((member) => (
               <div
