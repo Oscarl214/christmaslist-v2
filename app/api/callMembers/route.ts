@@ -13,6 +13,9 @@ export async function GET() {
         list2024: true,
         info: true,
       },
+      orderBy: {
+        name: 'asc',
+      },
     });
     return NextResponse.json({
       message: 'MEmbers Data fetched',
