@@ -4,6 +4,7 @@ import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { SlPresent } from 'react-icons/sl';
 import { Spinner } from '@nextui-org/react';
+import { IoIosLink } from 'react-icons/io';
 interface ListFormProps {
   memberId: string;
   updateWishList: (newItem: string) => void;
@@ -11,7 +12,7 @@ interface ListFormProps {
 
 const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
   const [item, setItem] = useState('');
-
+  const [link, setLink] = useState('');
   const [loading, setLoading] = useState(false);
   const handleSubmission = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +30,7 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
         },
         body: JSON.stringify({
           item,
+          link,
           memberId,
         }),
       });
@@ -38,6 +40,7 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
         console.log('Item added successfully', result);
         toast.success('Item added successfully');
         setItem('');
+        setLink('');
         updateWishList(item);
       } else {
         console.error('Failed to add item');
@@ -66,6 +69,17 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
               required
               className="bg-gray-300 rounded-sm m-2 font-sans text-[16px] h-[35px] p-2"
               onChange={(e) => setItem(e.target.value)}
+            />
+            <div className="flex justify-center flex-row items-center gap-4 m-2">
+              <IoIosLink className="text-2xl text-blue-500" />
+              <label className="text-3xl">Enter Link to Item</label>
+            </div>
+            <input
+              type="text"
+              placeholder="https://www.amazon.com/Kyosho-Halloween-Christmas-Waterproof-Multicolo..."
+              value={link}
+              className="bg-gray-300 rounded-sm m-2 font-sans text-[16px] h-[35px] p-2"
+              onChange={(e) => setLink(e.target.value)}
             />
           </CardBody>
           <CardFooter>

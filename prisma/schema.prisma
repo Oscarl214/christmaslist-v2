@@ -13,12 +13,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Member {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
   profilePic String
-  list2023  String[] 
-  list2024  String[] 
-  info      String[]
+  list2023   String[]
+  list2024   Item[]
+  info       String[]
+}
+
+type Item {
+  description String
+  link        String?
 }
