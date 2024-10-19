@@ -7,7 +7,6 @@ import NavBar from '../components/navbar';
 
 import MemberCard from '../components/userspage/MemberCard';
 import Footer from '../components/Footer';
-import Test from '../components/test';
 
 const Users = () => {
   const { data: session } = useSession();
@@ -25,7 +24,6 @@ const Users = () => {
       <NavBar />
       <div>
         <MemberCard />
-      
       </div>
       <Footer />
     </div>

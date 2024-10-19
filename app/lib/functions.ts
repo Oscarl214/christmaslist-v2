@@ -1,21 +1,13 @@
 'use server';
 import { prisma } from '@/lib/prisma';
+import { getServerSession } from 'next-auth';
+export const getMembers = async () => {
+  const session = await getServerSession();
 
-interface Item {
-  description: string;
-  link?: string;
-}
+  if (!session) {
+    throw new Error('User not authenticated');
+  }
 
-interface Member {
-  id: string;
-  name: string;
-  profilePic: string;
-  list2023: string[];
-  list2024: Item[];
-  info: string[];
-}
-
-export const getMembers = async (): Promise<Member[]> => {
   try {
     const allMembers = await prisma.member.findMany({
       select: {
@@ -30,12 +22,11 @@ export const getMembers = async (): Promise<Member[]> => {
         name: 'asc',
       },
     });
+    console.log('fetched Members', allMembers);
 
-    console.log("fetched Members", allMembers);
-    return allMembers; // Ensure this is always Member[]
+    return allMembers;
   } catch (error) {
     console.error('Failed to Fetch Members', error);
-    throw new Error('Failed to fetch members'); // Throw error for consistent type
+    throw new Error('Failed to fetch members');
   }
 };
-

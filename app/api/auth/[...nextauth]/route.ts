@@ -10,14 +10,14 @@ const handler = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        console.log('Environment Password:', process.env.APP_PASSWORD);
+        // console.log('Environment Password:', process.env.APP_PASSWORD);
 
         if (!credentials || !credentials.password) {
           return null;
         }
         const validPassword = process.env.APP_PASSWORD;
-        console.log('Input Password:', credentials.password);
-        console.log('ENV pass', validPassword);
+        // console.log('Input Password:', credentials.password);
+        // console.log('ENV pass', validPassword);
         if (String(credentials.password) === String(validPassword)) {
           const user = {
             id: '1',
