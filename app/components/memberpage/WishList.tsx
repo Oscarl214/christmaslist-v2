@@ -18,50 +18,49 @@ import {
   Divider,
 } from '@nextui-org/react';
 
+interface Item {
+  description: string;
+  link: string | null;
+}
+
 interface Member {
   id: string;
   name: string;
   profilePic: string;
   list2023: string[];
-  list2024: string[];
+  list2024: Item[];
   info: string[];
 }
 
 interface MemberInfoProps {
-  member: Member;
-  updateWishList: (newItem: string) => void;
-  deleteWishItem: (index: number) => void;
+  member: Member | null;
 }
 
-const WishList: React.FC<MemberInfoProps> = ({
-  member,
-  deleteWishItem,
-  updateWishList,
-}) => {
+const WishList: React.FC<MemberInfoProps> = ({ member }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const handleDelete = async (index: number) => {
-    deleteWishItem(index);
-    try {
-      const response = await fetch('/api/deleteItem', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ memberId: member.id, index }),
-      });
+  // const handleDelete = async (index: number) => {
+  //   deleteWishItem(index);
+  //   try {
+  //     const response = await fetch('/api/deleteItem', {
+  //       method: 'DELETE',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ memberId: member.id, index }),
+  //     });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Item deleted:', data.message);
-      } else {
-        const errorData = await response.json();
-        console.error('Error deleting item:', errorData.message);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       console.log('Item deleted:', data.message);
+  //     } else {
+  //       const errorData = await response.json();
+  //       console.error('Error deleting item:', errorData.message);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
 
   return (
     <div>
@@ -90,7 +89,7 @@ const WishList: React.FC<MemberInfoProps> = ({
               <ModalBody className="flex flex-col justify-center items-center gap-4">
                 <ListForm
                   memberId={member.id}
-                  updateWishList={updateWishList}
+                  // updateWishList={updateWishList}
                 />
 
                 <div className="w-full h-64 overflow-auto border rounded-lg p-2">
@@ -104,14 +103,14 @@ const WishList: React.FC<MemberInfoProps> = ({
                           <CardBody className="flex justify-between items-center">
                             <ul className="font-sans list-disc list-inside w-full">
                               <li className="p-1 marker:text-[#0077ff] text-xl">
-                                {item}
+                                {item.description}
                               </li>
                             </ul>
                             <Button
                               className="text-black text-lg bg-red-500 ml-2"
                               variant="light"
                               size="sm"
-                              onClick={() => handleDelete(index)}
+                              // onClick={() => handleDelete(index)}
                             >
                               Delete
                             </Button>

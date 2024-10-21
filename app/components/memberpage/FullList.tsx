@@ -1,61 +1,91 @@
+'use client';
 import React from 'react';
 import { Card, CardBody } from '@nextui-org/react';
-
 import Image from 'next/image';
 import { SlPresent } from 'react-icons/sl';
 import Jack from '../../../public/Jack.gif';
+import { CiLink } from 'react-icons/ci';
+
+interface Item {
+  description: string;
+  link: string | null;
+}
 
 interface Member {
   id: string;
   name: string;
   profilePic: string;
   list2023: string[];
-  list2024: string[];
+  list2024: Item[];
   info: string[];
 }
 
 interface MemberInfoProps {
-  member: Member;
+  member: Member | null;
 }
 
 const FullList: React.FC<MemberInfoProps> = ({ member }) => {
+  if (!member) {
+    return (
+      <div className="flex justify-center flex-col items-center h-full">
+        <p className="text-3xl text-center">No member data available.</p>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <div className="flex flex-col justify-center items-center ">
-        {/* <Image
-          src={Santa}
-          height={50}
-          width={50}
-          alt="Stocking"
-          onClick={onOpen}
-          className="cursor-pointer"
-        /> */}
-
-        {/* <p className="m-2 text-4xl">{member.name}&apos;s Wish List</p> */}
-      </div>
-      <div className="w-auto h-auto overflow-auto border rounded-lg p-6">
-        {member?.list2024 && member.list2024.length > 0 ? (
-          member.list2024.map((item, index) => (
-            <div key={index} className="flex justify-between items-center mb-2">
-              <Card className="">
-                <CardBody className="flex justify-center items-center ">
-                  <ul className="font-sans list-inside w-full flex flex-row">
-                    <li
-                      className="p-1 flex items-center justify-center text-center text-xl w-[220px]"
+      <div className="w-full max-w-4xl mx-auto overflow-auto border rounded-lg p-4 bg-gray-50 shadow-md">
+        {member.list2024 && member.list2024.length > 0 ? (
+          <Card className="shadow-lg">
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full text-left bg-white rounded-lg border-collapse">
+                <thead className="bg-gray-200 text-gray-600 uppercase text-sm font-sans">
+                  <tr>
+                    <th className="p-4">
+                      <SlPresent className="text-orange-500 text-lg" />
+                    </th>
+                    <th className="p-4">Gift</th>
+                    <th className="p-4 text-center">Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {member.list2024.map((item, index) => (
+                    <tr
                       key={index}
+                      className="border-b hover:bg-red-300 text-black"
                     >
-                      <SlPresent className="mr-2 text-3xl text-orange-500" />
-                      {item}
-                      <SlPresent className="ml-2 text-3xl text-orange-500" />
-                    </li>
-                  </ul>
-                </CardBody>
-              </Card>
+                      <td className="p-4 flex items-center gap-2">
+                        {index + 1}{' '}
+                      </td>
+                      <td className="p-4 font-medium text-gray-800 font-mono">
+                        {item.description}
+                      </td>
+                      <td className="p-4 text-center">
+                        {item.link ? (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline"
+                          >
+                            <CiLink className="inline-block mr-1 text-lg" />
+                          </a>
+                        ) : (
+                          <span className="text-gray-500">
+                            No link provided
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          ))
+          </Card>
         ) : (
-          <div className="flex justify-center flex-col items-center h-full ">
-            <p className="text-3xl text-center">
+          <div className="flex justify-center flex-col items-center h-full">
+            <p className="text-3xl text-center text-black">
               Please add your first Wish Item!
             </p>
             <Image
@@ -64,7 +94,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
               width={500}
               height={500}
               unoptimized={true}
-              className="rounded-sm"
+              className="rounded-sm mt-4"
             />
           </div>
         )}

@@ -1,15 +1,14 @@
-'use client';
+'use server';
 
 import React from 'react';
-import { useSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
 import { Spinner } from '@nextui-org/react';
 import NavBar from '../components/navbar';
-
 import MemberCard from '../components/userspage/MemberCard';
 import Footer from '../components/Footer';
 
-const Users = () => {
-  const { data: session } = useSession();
+const Users = async () => {
+  const session = await getServerSession();
 
   if (!session) {
     return (

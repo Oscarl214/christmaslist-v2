@@ -1,9 +1,7 @@
-'use client';
 import React from 'react';
-import Image from 'next/image';
-import { useQuery } from '@tanstack/react-query';
 import { getMembers } from '@/app/lib/functions';
-
+import Link from 'next/link';
+import Image from 'next/image';
 interface Item {
   description: string;
   link: string | null;
@@ -18,23 +16,25 @@ interface Member {
   info: string[];
 }
 
-const MemberCard = () => {
-  const {
-    data: members,
-    isLoading,
-    error,
-  } = useQuery({
-    queryFn: getMembers,
-    queryKey: ['membersData'],
-  });
+const MemberCard = async () => {
+  // const {
+  //   data: members,
+  //   isPending,
+  //   error,
+  // } = useQuery({
+  //   queryFn: getMembers,
+  //   queryKey: ['membersData'],
+  // });
 
-  if (isLoading) {
-    return '...Loading';
-  }
+  // if (isPending) {
+  //   return '...Loading';
+  // }
 
-  if (error) {
-    return 'Failed to fetch apps';
-  }
+  // if (error) {
+  //   return 'Failed to fetch apps';
+  // }
+
+  const members = await getMembers();
 
   return (
     <div>
@@ -46,20 +46,22 @@ const MemberCard = () => {
                 className="group cursor-pointer w-full sm:w-1/2 lg:w-1/4 border border-black dark:border-green-500 rounded-2xl p-5 transition-all duration-300 hover:border-red-500"
                 key={member.id}
               >
-                <div className="flex items-center mb-6">
-                  <Image
-                    src={member.profilePic}
-                    alt={member.name}
-                    width={200}
-                    height={200}
-                    className="rounded-lg w-full object-cover"
-                  />
-                </div>
-                <div className="block">
-                  <h3 className="font-medium text-5xl text-center mb-9">
-                    {member.name}
-                  </h3>
-                </div>
+                <Link href={`/member/${member.id}`} key={member.id}>
+                  <div className="flex items-center mb-6">
+                    <Image
+                      src={member.profilePic}
+                      alt={member.name}
+                      width={200}
+                      height={200}
+                      className="rounded-lg w-full object-cover"
+                    />
+                  </div>
+                  <div className="block">
+                    <h3 className="font-medium text-5xl text-center mb-9">
+                      {member.name}
+                    </h3>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

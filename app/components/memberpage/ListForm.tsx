@@ -7,51 +7,50 @@ import { Spinner } from '@nextui-org/react';
 import { IoIosLink } from 'react-icons/io';
 interface ListFormProps {
   memberId: string;
-  updateWishList: (newItem: string) => void;
 }
 
-const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
-  const [item, setItem] = useState('');
-  const [link, setLink] = useState('');
-  const [loading, setLoading] = useState(false);
-  const handleSubmission = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!item) {
-      toast.error('Please Input a Christmas Item');
-    }
+const ListForm: React.FC<ListFormProps> = ({ memberId }) => {
+  // const [item, setItem] = useState('');
+  // const [link, setLink] = useState('');
+  // const [loading, setLoading] = useState(false);
+  // const handleSubmission = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!item) {
+  //     toast.error('Please Input a Christmas Item');
+  //   }
 
-    setLoading(true);
+  //   setLoading(true);
 
-    try {
-      const response = await fetch('/api/addItem', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          item,
-          link,
-          memberId,
-        }),
-      });
+  //   try {
+  //     const response = await fetch('/api/addItem', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         item,
+  //         link,
+  //         memberId,
+  //       }),
+  //     });
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Item added successfully', result);
-        toast.success('Item added successfully');
-        setItem('');
-        setLink('');
-        updateWishList(item);
-      } else {
-        console.error('Failed to add item');
-        toast.error('Failed to add item');
-      }
-    } catch (error) {
-      console.error('Error submitting Item:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     if (response.ok) {
+  //       const result = await response.json();
+  //       console.log('Item added successfully', result);
+  //       toast.success('Item added successfully');
+  //       setItem('');
+  //       setLink('');
+  //       updateWishList(item);
+  //     } else {
+  //       console.error('Failed to add item');
+  //       toast.error('Failed to add item');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error submitting Item:', error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div className="flex flex-col justify-center items-center ">
@@ -65,10 +64,10 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
             <input
               type="text"
               placeholder="Socks"
-              value={item}
+              // value={item}
               required
               className="bg-gray-300 rounded-sm m-2 font-sans text-[16px] h-[35px] p-2"
-              onChange={(e) => setItem(e.target.value)}
+              // onChange={(e) => setItem(e.target.value)}
             />
             <div className="flex justify-center flex-row items-center gap-4 m-2">
               <IoIosLink className="text-2xl text-blue-500" />
@@ -77,24 +76,20 @@ const ListForm: React.FC<ListFormProps> = ({ memberId, updateWishList }) => {
             <input
               type="text"
               placeholder="https://www.amazon.com/Kyosho-Halloween-Christmas-Waterproof-Multicolo..."
-              value={link}
+              // value={link}
               className="bg-gray-300 rounded-sm m-2 font-sans text-[16px] h-[35px] p-2"
-              onChange={(e) => setLink(e.target.value)}
+              // onChange={(e) => setLink(e.target.value)}
             />
           </CardBody>
           <CardFooter>
-            {loading ? (
-              <Spinner size="lg" color="success" />
-            ) : (
-              <Button
-                type="submit"
-                className="bg-green-500  text-3xl"
-                onClick={handleSubmission}
-                disabled={loading}
-              >
-                Add Item
-              </Button>
-            )}
+            <Button
+              type="submit"
+              className="bg-green-500  text-3xl"
+              // onClick={handleSubmission}
+              // disabled={loading}
+            >
+              Add Item
+            </Button>
           </CardFooter>
         </Card>
       </form>
