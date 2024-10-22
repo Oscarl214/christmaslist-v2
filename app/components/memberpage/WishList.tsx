@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { TbChristmasBall } from 'react-icons/tb';
 import { Card, CardBody } from '@nextui-org/react';
 import Grinch from '../../../public/Grinch.gif';
-
+import toast from 'react-hot-toast';
 import {
   Modal,
   ModalContent,
@@ -17,7 +17,10 @@ import {
   useDisclosure,
   Divider,
 } from '@nextui-org/react';
-
+import { useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
+import { deleteItem } from '@/app/lib/functions';
+import { useParams } from 'next/navigation';
 interface Item {
   description: string;
   link: string | null;
@@ -61,7 +64,16 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
   //     console.error('Error:', error);
   //   }
   // };
+  const { id } = useParams();
 
+  const memberId = id as string;
+  const queryClient = useQueryClient();
+  const { mutateAsync: deleteItemMutation } = useMutation({
+    mutationFn: deleteItem,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['memberData', memberId] });
+    },
+  });
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
@@ -78,70 +90,86 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex justify-center text-3xl gap-4 text-center">
-                <TbChristmasBall className="text-green-500" />
-                Christmas List
-                <TbChristmasBall className="text-green-500" />
-              </ModalHeader>
-              <Divider className="text-black" />
-              <ModalBody className="flex flex-col justify-center items-center gap-4">
-                <ListForm
-                  memberId={member.id}
-                  // updateWishList={updateWishList}
-                />
+          <>
+            <ModalHeader className="flex justify-center text-3xl gap-4 text-center">
+              <TbChristmasBall className="text-green-500" />
+              Christmas List
+              <TbChristmasBall className="text-green-500" />
+            </ModalHeader>
+            <Divider className="text-black" />
+            <ModalBody className="flex flex-col justify-center items-center gap-4">
+              {member ? (
+                <ListForm memberId={member.id} />
+              ) : (
+                <p>Loading member data...</p>
+              )}
 
-                <div className="w-full h-64 overflow-auto border rounded-lg p-2">
-                  {member?.list2024 && member.list2024.length > 0 ? (
-                    member.list2024.map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center mb-2"
-                      >
-                        <Card className="w-full">
-                          <CardBody className="flex justify-between items-center">
-                            <ul className="font-sans list-disc list-inside w-full">
-                              <li className="p-1 marker:text-[#0077ff] text-xl">
-                                {item.description}
-                              </li>
-                            </ul>
-                            <Button
-                              className="text-black text-lg bg-red-500 ml-2"
-                              variant="light"
-                              size="sm"
-                              // onClick={() => handleDelete(index)}
-                            >
-                              Delete
-                            </Button>
-                          </CardBody>
-                        </Card>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="flex justify-center flex-col items-center h-full">
-                      <p className="text-3xl text-center ">
-                        Please add your first Wish Item!
-                      </p>
-                      <Image
-                        src={Grinch}
-                        alt="Animated GIF"
-                        width={200}
-                        height={200}
-                        unoptimized={true}
-                        className="rounded-sm"
-                      />
+              <div className="w-full h-64 overflow-auto border rounded-lg p-2">
+                {member?.list2024 && member.list2024.length > 0 ? (
+                  member.list2024.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-center mb-2"
+                    >
+                      <Card className="w-full">
+                        <CardBody className="flex justify-between items-center">
+                          <ul className="font-sans list-disc list-inside w-full">
+                            <li className="p-1 marker:text-[#0077ff] text-xl">
+                              {item.description}
+                            </li>
+                          </ul>
+                          <Button
+                            className="text-black text-lg bg-red-500 ml-2"
+                            variant="light"
+                            size="sm"
+                            onClick={async (e) => {
+                              e.preventDefault();
+                              if (!memberId || index === undefined) {
+                                toast.error('Member ID and index are required');
+                                return;
+                              }
+
+                              try {
+                                deleteItemMutation({
+                                  memberId: memberId,
+                                  index: index,
+                                });
+                                toast.success('Item Deleted Successfully');
+                              } catch (e) {
+                                console.log('Error adding Item', e);
+                                toast.error('Failed to add Item');
+                              }
+                            }}
+                          >
+                            Delete
+                          </Button>
+                        </CardBody>
+                      </Card>
                     </div>
-                  )}
-                </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button className=" text-2xl" onPress={onClose}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </>
-          )}
+                  ))
+                ) : (
+                  <div className="flex justify-center flex-col items-center h-full">
+                    <p className="text-3xl text-center ">
+                      Please add your first Wish Item!
+                    </p>
+                    <Image
+                      src={Grinch}
+                      alt="Animated GIF"
+                      width={200}
+                      height={200}
+                      unoptimized={true}
+                      className="rounded-sm"
+                    />
+                  </div>
+                )}
+              </div>
+            </ModalBody>
+            <ModalFooter>
+              <Button className=" text-2xl" onPress={onOpenChange}>
+                Close
+              </Button>
+            </ModalFooter>
+          </>
         </ModalContent>
       </Modal>
     </div>

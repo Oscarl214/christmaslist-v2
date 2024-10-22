@@ -35,6 +35,9 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
 
   return (
     <div>
+      <div className="flex flex-col justify-center items-center mb-6">
+        {/* Add a title or member name here if needed */}
+      </div>
       <div className="w-full max-w-4xl mx-auto overflow-auto border rounded-lg p-4 bg-gray-50 shadow-md">
         {member.list2024 && member.list2024.length > 0 ? (
           <Card className="shadow-lg">
@@ -53,7 +56,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
                   {member.list2024.map((item, index) => (
                     <tr
                       key={index}
-                      className="border-b hover:bg-red-300 text-black"
+                      className="border-b hover:bg-red-500 text-black"
                     >
                       <td className="p-4 flex items-center gap-2">
                         {index + 1}{' '}
@@ -85,7 +88,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
           </Card>
         ) : (
           <div className="flex justify-center flex-col items-center h-full">
-            <p className="text-3xl text-center text-black">
+            <p className="text-3xl text-center">
               Please add your first Wish Item!
             </p>
             <Image
