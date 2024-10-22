@@ -62,10 +62,10 @@ const ListForm = () => {
               className="bg-green-500  text-3xl"
               onClick={async (e) => {
                 e.preventDefault();
-                if (!id || !description) {
-                  toast.error('Member ID and description are required');
-                  return;
-                }
+                // if (!id || !description) {
+                //   toast.error('Member ID and description are required');
+                //   return;
+                // }
                 try {
                   await addItemMutation({
                     id: memberId,

@@ -2,7 +2,7 @@
 import React from 'react';
 import ListForm from './ListForm';
 import Image from 'next/image';
-
+import { CiLink } from 'react-icons/ci';
 import { TbChristmasBall } from 'react-icons/tb';
 import { Card, CardBody } from '@nextui-org/react';
 import Grinch from '../../../public/Grinch.gif';
@@ -117,6 +117,23 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                             <li className="p-1 marker:text-[#0077ff] text-xl">
                               {item.description}
                             </li>
+                            {item.link ? (
+                              <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-500 hover:underline"
+                              >
+                                <li className="p-1 marker:text-[#0077ff] text-xl">
+                                  Link{' '}
+                                  <CiLink className="inline-block mr-1 text-lg" />
+                                </li>
+                              </a>
+                            ) : (
+                              <span className="text-gray-500">
+                                No link provided
+                              </span>
+                            )}
                           </ul>
                           <Button
                             className="text-black text-lg bg-red-500 ml-2"
