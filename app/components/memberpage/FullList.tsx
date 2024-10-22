@@ -75,7 +75,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
                             <CiLink className="inline-block mr-1 text-lg" />
                           </a>
                         ) : (
-                          <span className="text-gray-500">
+                          <span className="text-gray-500 font-mono">
                             No link provided
                           </span>
                         )}

@@ -38,7 +38,7 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
       <div className="flex flex-col justify-center items-center">
         <Button
           onPress={onOpen}
-          className=" border-2 border-green-500 bg-transparent hover:bg-red-500"
+          className=" border-2 font-mono border-green-500 bg-transparent hover:bg-red-500"
         >
           Info
         </Button>
