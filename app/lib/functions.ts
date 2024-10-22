@@ -147,3 +147,69 @@ export const deleteItem = async ({
     }
   }
 };
+
+export const updateItem = async ({
+  memberId,
+  description,
+  link,
+  index,
+}: {
+  memberId: string;
+  description: string;
+  link: string;
+  index: number;
+}) => {
+  try {
+    if (!memberId || !description) {
+      return {
+        error: 'Member ID and description are required',
+        status: 400,
+      };
+    }
+
+    const famMember = await prisma.member.findUnique({
+      where: { id: memberId },
+      select: { id: true, list2024: true },
+    });
+
+    if (!famMember) {
+      return {
+        error: 'Member not found',
+        status: 404,
+      };
+    }
+
+    if (index < 0 || index >= famMember.list2024.length) {
+      return {
+        error: 'Invalid index',
+        status: 400,
+      };
+    }
+
+    const updatedList2024 = [...famMember.list2024];
+    updatedList2024[index] = {
+      ...updatedList2024[index],
+      description: description,
+      link: link || updatedList2024[index].link,
+    };
+
+    const updatedMember = await prisma.member.update({
+      where: { id: memberId },
+      data: {
+        list2024: updatedList2024,
+      },
+    });
+
+    return {
+      message: 'Item updated successfully',
+      status: 200,
+      updatedMember,
+    };
+  } catch (error) {
+    console.error('Error updating item:', error);
+    return {
+      error: 'Internal server error',
+      status: 500,
+    };
+  }
+};

@@ -59,7 +59,7 @@ const ListForm = () => {
           <CardFooter>
             <Button
               type="submit"
-              className="bg-green-500  text-3xl"
+              className="bg-green-500  text-xl font-mono"
               onClick={async (e) => {
                 e.preventDefault();
                 // if (!id || !description) {
