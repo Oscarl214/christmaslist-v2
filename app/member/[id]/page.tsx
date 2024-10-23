@@ -11,7 +11,7 @@ import FullList from '@/app/components/memberpage/FullList';
 import Footer from '@/app/components/Footer';
 import { useQuery } from '@tanstack/react-query';
 import { getMemberbyID } from '@/app/lib/functions';
-
+import Link from 'next/link';
 const Member = () => {
   const { id } = useParams();
 
@@ -74,9 +74,12 @@ const Member = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <button className="btn border-2 font-mono border-yellow-500 bg-transparent hover:bg-green-500">
+        <Link
+          className="btn border-2 font-mono border-yellow-500 bg-transparent hover:bg-green-500"
+          href={'/users'}
+        >
           Back to Fam
-        </button>
+        </Link>
       </div>
       <Footer />
     </div>

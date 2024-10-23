@@ -35,9 +35,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center mb-6">
-        {/* Add a title or member name here if needed */}
-      </div>
+      <div className="flex flex-col justify-center items-center mb-6"></div>
       <div className="w-full max-w-4xl mx-auto overflow-auto border rounded-lg p-4 bg-gray-50 shadow-md">
         {member.list2024 && member.list2024.length > 0 ? (
           <Card className="shadow-lg">
