@@ -21,7 +21,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useMutation } from '@tanstack/react-query';
 import { deleteItem, updateItem } from '@/app/lib/functions';
 import { useParams } from 'next/navigation';
-
+import { TbXboxX } from 'react-icons/tb';
 interface Item {
   description: string;
   link: string | null;
@@ -49,6 +49,8 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
   const { id } = useParams();
 
   const memberId = id as string;
+
+  console.log('Upon clicking create', memberId);
   const queryClient = useQueryClient();
 
   const { mutateAsync: deleteItemMutation } = useMutation({
@@ -114,12 +116,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
           </ModalHeader>
           <Divider className="text-black" />
           <ModalBody className="flex flex-col justify-center items-center gap-4">
-            {member ? (
-              <ListForm memberId={member.id} />
-            ) : (
-              <p>Loading member data...</p>
-            )}
-
+            {member ? <ListForm /> : <p>Loading member data...</p>}
             <div className="w-full h-64 overflow-auto border rounded-lg p-2">
               {member?.list2024 && member.list2024.length > 0 ? (
                 member.list2024.map((item, index) => (
@@ -131,12 +128,13 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                       <CardBody className="flex justify-between items-center">
                         {editingIndex === index ? (
                           <div className="flex flex-col gap-3 w-full font-mono">
-                            <Input
-                              type="description"
+                            <textarea
                               value={description}
+                              className="min-h-[150px] w-full overflow-y-auto p-2 border rounded-md"
                               onChange={(e) => setDescription(e.target.value)}
-                              label={`Item to Update: ${item.description}`}
+                              placeholder={`Item to Update: ${item.description}`}
                             />
+
                             <Input
                               type="link"
                               value={link}
@@ -149,7 +147,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                                   <Spinner size="sm" label="Updating.." />
                                 </div>
                               ) : (
-                                <div>
+                                <div className="flex flex-row justify-around items-end">
                                   <Button
                                     className="text-black text-lg font-mono bg-green-500 mt-2"
                                     variant="light"
@@ -160,6 +158,10 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                                   >
                                     Update Item
                                   </Button>
+                                  <TbXboxX
+                                    className="text-xl text-red-500 cursor-pointer"
+                                    onClick={() => setEditingIndex(null)}
+                                  />
                                 </div>
                               )}
                             </div>
@@ -202,6 +204,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                                 variant="light"
                                 size="sm"
                                 onClick={async () => {
+                                  setLoading(true);
                                   try {
                                     await deleteItemMutation({
                                       memberId,
@@ -211,6 +214,8 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                                   } catch (e) {
                                     console.log('Error deleting Item', e);
                                     toast.error('Failed to delete Item');
+                                  } finally {
+                                    setLoading(false);
                                   }
                                 }}
                               >

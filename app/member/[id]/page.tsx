@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useParams } from 'next/navigation';
-
+import { Button } from '@nextui-org/react';
 import { Spinner } from '@nextui-org/react';
 import Info from '@/app/components/memberpage/Info';
 import NavBar from '@/app/components/navbar';
@@ -18,7 +18,7 @@ const Member = () => {
   console.log('params', id);
 
   const {
-    data: member,
+    data: member = null,
     isPending,
     error,
   } = useQuery({
@@ -72,6 +72,11 @@ const Member = () => {
           <WishList member={member} />
           <Info member={member} />
         </div>
+      </div>
+      <div className="flex justify-center">
+        <button className="btn border-2 font-mono border-yellow-500 bg-transparent hover:bg-green-500">
+          Back to Fam
+        </button>
       </div>
       <Footer />
     </div>
