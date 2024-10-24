@@ -86,7 +86,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
           </Card>
         ) : (
           <div className="flex justify-center flex-col items-center h-full">
-            <p className="text-3xl text-center">
+            <p className="text-3xl text-center text-black">
               Please add your first Wish Item!
             </p>
             <Image
