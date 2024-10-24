@@ -42,9 +42,6 @@ interface MemberInfoProps {
 }
 
 const WishList: React.FC<MemberInfoProps> = ({ member }) => {
-  
-
-
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [description, setDescription] = useState('');
@@ -103,13 +100,12 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
       <div className="flex flex-col justify-center items-center">
         <Button
           onPress={onOpen}
-          
           className="border-2 font-mono border-red-500 bg-transparent hover:bg-green-500"
         >
           Create
         </Button>
-        <p className="m-2 text-4xl text-center">Create</p>
-        <p className="text-xl text-center">WishList</p>
+        {/* <p className="m-2 text-4xl text-center">Create</p>
+        <p className="text-xl text-center">WishList</p> */}
       </div>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={'top'}>
@@ -121,15 +117,18 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
           </ModalHeader>
           <Divider className="text-black" />
           <ModalBody className="flex flex-col justify-center items-center gap-4">
-          {member ? (
-    editingIndex === null ? (
-      <ListForm />
-    ) : (
-      <p className="text-center text-lg">Editing an item. Please finish editing before adding a new one.</p>
-    )
-  ) : (
-    <p>Loading member data...</p>
-  )}
+            {member ? (
+              editingIndex === null ? (
+                <ListForm />
+              ) : (
+                <p className="text-center text-lg">
+                  Editing an item. Please finish editing before adding a new
+                  one.
+                </p>
+              )
+            ) : (
+              <p>Loading member data...</p>
+            )}
             <div className="w-full h-64 overflow-auto border rounded-lg p-2">
               {member?.list2024 && member.list2024.length > 0 ? (
                 member.list2024.map((item, index) => (

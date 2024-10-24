@@ -74,7 +74,7 @@ const Member = () => {
       </div>
       <div className="flex justify-center">
         <Link
-          className="btn border-2 font-mono border-yellow-500 bg-transparent hover:bg-green-500"
+          className="btn border-2 font-mono dark:text-white text-black border-yellow-500 bg-transparent hover:bg-green-500"
           href={'/users'}
         >
           Back to Fam

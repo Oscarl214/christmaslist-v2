@@ -42,8 +42,6 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
         >
           Info
         </Button>
-
-        <p className="m-2 text-4xl text-center">Info</p>
       </div>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
