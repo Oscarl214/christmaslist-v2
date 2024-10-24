@@ -22,6 +22,7 @@ import { useMutation } from '@tanstack/react-query';
 import { deleteItem, updateItem } from '@/app/lib/functions';
 import { useParams } from 'next/navigation';
 import { TbXboxX } from 'react-icons/tb';
+
 interface Item {
   description: string;
   link: string | null;
@@ -41,6 +42,9 @@ interface MemberInfoProps {
 }
 
 const WishList: React.FC<MemberInfoProps> = ({ member }) => {
+  const [modalPlacement, setModalPlacement] = useState<'auto' | 'center' | 'bottom' | 'top' | 'top-center' | 'bottom-center'>('top');
+
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [description, setDescription] = useState('');
@@ -99,6 +103,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
       <div className="flex flex-col justify-center items-center">
         <Button
           onPress={onOpen}
+          
           className="border-2 font-mono border-red-500 bg-transparent hover:bg-green-500"
         >
           Create
@@ -107,7 +112,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
         <p className="text-xl text-center">WishList</p>
       </div>
 
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}>
         <ModalContent>
           <ModalHeader className="flex justify-center text-3xl gap-4 text-center">
             <TbChristmasBall className="text-green-500" />
@@ -116,7 +121,15 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
           </ModalHeader>
           <Divider className="text-black" />
           <ModalBody className="flex flex-col justify-center items-center gap-4">
-            {member ? <ListForm /> : <p>Loading member data...</p>}
+          {member ? (
+    editingIndex === null ? (
+      <ListForm />
+    ) : (
+      <p className="text-center text-lg">Editing an item. Please finish editing before adding a new one.</p>
+    )
+  ) : (
+    <p>Loading member data...</p>
+  )}
             <div className="w-full h-64 overflow-auto border rounded-lg p-2">
               {member?.list2024 && member.list2024.length > 0 ? (
                 member.list2024.map((item, index) => (
@@ -125,9 +138,9 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                     className="flex justify-between items-center mb-2"
                   >
                     <Card className="w-full">
-                      <CardBody className="flex justify-between items-center">
+                      <CardBody className="flex justify-between items-center ">
                         {editingIndex === index ? (
-                          <div className="flex flex-col gap-3 w-full font-mono">
+                          <div className="flex flex-col gap-3 w-full font-mono ">
                             <textarea
                               value={description}
                               className="min-h-[150px] w-full overflow-y-auto p-2 border rounded-md"
