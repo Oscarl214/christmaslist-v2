@@ -1,78 +1,42 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'next/navigation';
-
+import { Button } from '@nextui-org/react';
 import { Spinner } from '@nextui-org/react';
-
-import NavBar from '@/app/components/navbar';
 import Info from '@/app/components/memberpage/Info';
-
-import Image from 'next/image';
+import NavBar from '@/app/components/navbar';
 import WishList from '@/app/components/memberpage/WishList';
+import Image from 'next/image';
 import FullList from '@/app/components/memberpage/FullList';
 import Footer from '@/app/components/Footer';
-
-interface Member {
-  id: string;
-  name: string;
-  profilePic: string;
-  list2023: string[];
-  list2024: string[];
-  info: string[];
-}
-//
+import { useQuery } from '@tanstack/react-query';
+import { getMemberbyID } from '@/app/lib/functions';
+import Link from 'next/link';
 const Member = () => {
   const { id } = useParams();
 
   console.log('params', id);
 
-  const [member, setMember] = useState<Member | null>(null);
+  const {
+    data: member = null,
+    isPending,
+    error,
+  } = useQuery({
+    queryKey: ['memberData', id],
+    queryFn: () =>
+      getMemberbyID({ memberId: typeof id === 'string' ? id : id[0] }),
+  });
 
-  useEffect(() => {
-    const fetchMember = async () => {
-      const result = await fetch(`/api/callUser/${id}`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        cache: 'no-store',
-      });
-      //
-      const data: Member = await result.json();
-      setMember(data);
-
-      console.log('Member Data:', data);
-    };
-
-    if (id) {
-      fetchMember();
-    }
-  }, [id]);
-
-  const updatedWishList = (newItem: string) => {
-    if (member) {
-      setMember({
-        ...member,
-        list2024: [...member.list2024, newItem],
-      });
-    }
-  };
-
-  const deleteWishItem = (index: number) => {
-    if (member) {
-      const updatedList = member.list2024.filter((_, i) => i !== index);
-      setMember({
-        ...member,
-        list2024: updatedList,
-      });
-    }
-  };
-
-  if (!member) {
+  if (isPending) {
     return (
       <div className="flex justify-center items-center h-screen">
         <Spinner />
       </div>
     );
+  }
+
+  if (error) {
+    return <p>Error loading Member data</p>;
   }
   return (
     <div>
@@ -93,25 +57,29 @@ const Member = () => {
           }}
         >
           <Image
-            src={member.profilePic}
+            src={member?.profilePic ?? '@/public/Elf.png'}
             alt="Santa Card"
             width={300}
             height={300}
             className="rounded-lg"
           />
         </div>
-        <h1 className="text-5xl">{member.name}&apos;s Wish List</h1>
+        <h1 className="text-5xl">{member?.name}&apos;s Wish List</h1>
         <div>
           <FullList member={member} />
         </div>
         <div className="flex flex-row justify-around gap-2 m-4 p-4">
-          <WishList
-            member={member}
-            updateWishList={updatedWishList}
-            deleteWishItem={deleteWishItem}
-          />
+          <WishList member={member} />
           <Info member={member} />
         </div>
+      </div>
+      <div className="flex justify-center">
+        <Link
+          className="btn border-2 font-mono border-yellow-500 bg-transparent hover:bg-green-500"
+          href={'/users'}
+        >
+          Back to Fam
+        </Link>
       </div>
       <Footer />
     </div>

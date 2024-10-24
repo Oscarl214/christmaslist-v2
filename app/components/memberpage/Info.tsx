@@ -13,17 +13,22 @@ import {
 
 import Image from 'next/image';
 import Rudolph from '../../../public/Rudolph.gif';
+interface Item {
+  description: string;
+  link: string | null;
+}
+
 interface Member {
   id: string;
   name: string;
   profilePic: string;
   list2023: string[];
-  list2024: string[];
+  list2024: Item[];
   info: string[];
 }
 
 interface MemberInfoProps {
-  member: Member;
+  member: Member | null;
 }
 
 const Info: React.FC<MemberInfoProps> = ({ member }) => {
@@ -33,7 +38,7 @@ const Info: React.FC<MemberInfoProps> = ({ member }) => {
       <div className="flex flex-col justify-center items-center">
         <Button
           onPress={onOpen}
-          className=" border-2 border-green-500 bg-transparent hover:bg-red-500"
+          className=" border-2 font-mono border-green-500 bg-transparent hover:bg-red-500"
         >
           Info
         </Button>
