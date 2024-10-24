@@ -42,7 +42,7 @@ interface MemberInfoProps {
 }
 
 const WishList: React.FC<MemberInfoProps> = ({ member }) => {
-  const [modalPlacement, setModalPlacement] = useState<'auto' | 'center' | 'bottom' | 'top' | 'top-center' | 'bottom-center'>('top');
+  
 
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -112,7 +112,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
         <p className="text-xl text-center">WishList</p>
       </div>
 
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={'top'}>
         <ModalContent>
           <ModalHeader className="flex justify-center text-3xl gap-4 text-center">
             <TbChristmasBall className="text-green-500" />
