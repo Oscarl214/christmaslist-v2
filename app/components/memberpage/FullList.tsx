@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Card, CardBody } from '@nextui-org/react';
+import { Card } from '@nextui-org/react';
 import Image from 'next/image';
 import { SlPresent } from 'react-icons/sl';
 import Jack from '../../../public/Jack.gif';

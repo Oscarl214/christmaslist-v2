@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { Button } from '@nextui-org/react';
 import { Spinner } from '@nextui-org/react';
 import Info from '@/app/components/memberpage/Info';
 import NavBar from '@/app/components/navbar';

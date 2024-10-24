@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
 import toast from 'react-hot-toast';
 import { SlPresent } from 'react-icons/sl';
-import { Spinner } from '@nextui-org/react';
 import { IoIosLink } from 'react-icons/io';
 import { useQueryClient } from '@tanstack/react-query';
 import { useMutation } from '@tanstack/react-query';
