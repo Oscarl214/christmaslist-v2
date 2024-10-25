@@ -142,7 +142,7 @@ const WishList: React.FC<MemberInfoProps> = ({ member }) => {
                           <div className="flex flex-col gap-3 w-full font-mono ">
                             <textarea
                               value={description}
-                              className="min-h-[150px] w-full overflow-y-auto p-2 border rounded-md"
+                              className="min-h-[100px] w-full overflow-y-auto p-2 border rounded-md"
                               onChange={(e) => setDescription(e.target.value)}
                               placeholder={`Item to Update: ${item.description}`}
                             />
