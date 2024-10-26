@@ -38,7 +38,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
       <div className="flex flex-col justify-center items-center mb-6"></div>
       <div className="w-full max-w-4xl mx-auto overflow-auto border rounded-lg p-4 bg-gray-50 shadow-md">
         {member.list2024 && member.list2024.length > 0 ? (
-          <Card className="shadow-lg">
+          <Card className="shadow-lg ">
             <div className="overflow-x-auto">
               <table className="table-auto w-full text-left bg-white rounded-lg border-collapse">
                 <thead className="bg-gray-200 text-gray-600 uppercase text-sm font-sans">
@@ -59,7 +59,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
                       <td className="p-2 sm:p-4 flex items-center gap-2">
                         {index + 1}
                       </td>
-                      <td className="p-2 sm:p-4 font-medium text-gray-800 font-mono">
+                      <td className=" font-medium text-gray-800 font-mono">
                         {item.description}
                       </td>
                       <td className="p-2 sm:p-4 text-center">
