@@ -34,7 +34,7 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
   }
 
   return (
-    <div>
+    <div className="px-4 w-full">
       <div className="flex flex-col justify-center items-center mb-6"></div>
       <div className="w-full max-w-4xl mx-auto overflow-auto border rounded-lg p-4 bg-gray-50 shadow-md">
         {member.list2024 && member.list2024.length > 0 ? (
@@ -43,26 +43,26 @@ const FullList: React.FC<MemberInfoProps> = ({ member }) => {
               <table className="table-auto w-full text-left bg-white rounded-lg border-collapse">
                 <thead className="bg-gray-200 text-gray-600 uppercase text-sm font-sans">
                   <tr>
-                    <th className="p-4">
+                    <th className="p-2 sm:p-4">
                       <SlPresent className="text-orange-500 text-lg" />
                     </th>
-                    <th className="p-4">Gift</th>
-                    <th className="p-4 text-center">Link</th>
+                    <th className="p-2 sm:p-4">Gift</th>
+                    <th className="p-2 sm:p-4 text-center">Link</th>
                   </tr>
                 </thead>
                 <tbody>
                   {member.list2024.map((item, index) => (
                     <tr
                       key={index}
-                      className="border-b hover:bg-red-500 text-black"
+                      className="border-b hover:bg-red-500 text-black text-sm sm:text-base"
                     >
-                      <td className="p-4 flex items-center gap-2">
-                        {index + 1}{' '}
+                      <td className="p-2 sm:p-4 flex items-center gap-2">
+                        {index + 1}
                       </td>
-                      <td className="p-4 font-medium text-gray-800 font-mono">
+                      <td className="p-2 sm:p-4 font-medium text-gray-800 font-mono">
                         {item.description}
                       </td>
-                      <td className="p-4 text-center">
+                      <td className="p-2 sm:p-4 text-center">
                         {item.link ? (
                           <a
                             href={item.link}
