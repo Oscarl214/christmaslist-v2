@@ -70,7 +70,7 @@ function SignInPage() {
             onChange={handlePasswordChange}
             className="p-2 border rounded h-[34px]"
           />
-          <p className="font-sans text-sm m-2">HINT: Family</p>
+          {/* <p className="font-sans text-sm m-2">HINT: Family</p> */}
           <Button
             type="submit"
             className="bg-red-500  text-center px-4 py-2 rounded lg:ml-2 hover:bg-green-500 "
